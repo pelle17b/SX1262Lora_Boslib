@@ -1,6 +1,6 @@
 #include "SX1262_spi.h"
 
-uint8_t g_spiBuff[SPI_BUFFER_SIZE];   //Buffer for sending SPI commands to radio
+uint8_t spiBuff[SPI_BUFFER_SIZE];   //Buffer for sending SPI commands to radio
 
 SX1262_spi::SX1262_spi()
 {
@@ -53,7 +53,7 @@ void SX1262_spi::transferSPI(int nbrBytes){
   waitUntilReady();
   digitalWrite(SX1262_NSS,0); //CS 
   delay(SPI_CS_DELAY);
-  SPI.transfer(g_spiBuff, nbrBytes);
+  SPI.transfer(spiBuff, nbrBytes);
   digitalWrite(SX1262_NSS,1); //Disable radio chip-select
   waitUntilReady();
 }

@@ -1,7 +1,8 @@
 #define DEBUG_LORA_LOWLEVEL false
 #define DEBUG_LORA_MESSAGE true
 #define DEBUG_LORA_SIGNAL false
-#define DEBUG_LORA_ERROR false
+#define DEBUG_LORA_ERROR true
+#define DEBUG_LORA_PRINTOUTS false
 
 #define SX1262_TXEN  8
 #define SX1262_RXEN  10
