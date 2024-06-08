@@ -31,7 +31,6 @@ void SX1262_spi::writeRegister(uint16_t address, uint8_t value){
   SPI.transfer(value);  
   digitalWrite(SX1262_NSS,1); //!CS
   waitUntilReady();
-  return;
 }
 
 uint8_t SX1262_spi::readRegister(uint16_t address){
@@ -57,7 +56,6 @@ void SX1262_spi::transferSPI(int nbrBytes){
   SPI.transfer(g_spiBuff, nbrBytes);
   digitalWrite(SX1262_NSS,1); //Disable radio chip-select
   waitUntilReady();
-  return;
 }
 
 void SX1262_spi::transferTransmitBuffer(int nbrBytes, char* txRxBuff){
@@ -74,7 +72,6 @@ void SX1262_spi::transferTransmitBuffer(int nbrBytes, char* txRxBuff){
     }
   digitalWrite(SX1262_NSS,1); //Disable radio chip-select
   waitUntilReady();
-  return txRxBuff;
 }
 
 void SX1262_spi::transferReceiveBuffer(int payloadLength, uint8_t startAddress, char* txRxBuff){
@@ -94,7 +91,6 @@ void SX1262_spi::transferReceiveBuffer(int payloadLength, uint8_t startAddress, 
   txRxBuff[payloadLength] = '\0'; //Add end of string character after message 
   digitalWrite(SX1262_NSS,1); //Disable radio chip-select
   waitUntilReady();
-  return txRxBuff;
 }
 
 void SX1262_spi::waitUntilReady(){
@@ -102,5 +98,4 @@ void SX1262_spi::waitUntilReady(){
   while (digitalRead(SX1262_BUSY)){
     delay(1);
   }  
-  return;
 }
