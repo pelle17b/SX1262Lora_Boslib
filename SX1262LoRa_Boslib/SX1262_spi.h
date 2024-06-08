@@ -15,7 +15,7 @@ class SX1262_spi
 	void transferSPI(int nbrBytes);
 	void transferTransmitBuffer(int nbrBytes, char* txRxBuff);
 	void transferReceiveBuffer(int payloadLength, uint8_t startAddress, char* txRxBuff);
-	uint8_t g_spiBuff[SPI_BUFFER_SIZE];   //Buffer for sending SPI commands to radio
+	uint8_t spiBuff[SPI_BUFFER_SIZE];   //Buffer for sending SPI commands to radio
   private:
 	void waitUntilReady();
 
